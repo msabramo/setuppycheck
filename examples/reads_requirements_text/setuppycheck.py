@@ -3,7 +3,6 @@
 import __builtin__
 import logging
 import mock
-import pprint
 import sys
 
 level = logging.INFO

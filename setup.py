@@ -25,7 +25,7 @@ setup(
     author='Marc Abramowitz',
     author_email='msabramo@gmail.com',
     install_requires=['mock'],
-    entry_points = """\
+    entry_points="""\
         [console_scripts]
         setuppycheck = setuppycheck:setuppycheck
     """,
