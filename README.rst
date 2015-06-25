@@ -3,7 +3,8 @@ setuppycheck: A ``setup.py`` checker
 
 Checks for questionable practices in ``setup.py`` files.
 
-PyPI: https://pypi.python.org/pypi/setuppycheck
+- PyPI: https://pypi.python.org/pypi/setuppycheck
+- GitHub https://github.com/msabramo/setuppycheck
 
 Install
 -------
