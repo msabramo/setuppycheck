@@ -7,6 +7,8 @@ setuppycheck: A ``setup.py`` checker
 .. image:: https://img.shields.io/pypi/v/setuppycheck.svg
     :target: https://pypi.python.org/pypi/setuppycheck
 
+.. image:: https://img.shields.io/pypi/wheel/setuppycheck.svg
+
 Checks for questionable practices in ``setup.py`` files.
 
 - PyPI: https://pypi.python.org/pypi/setuppycheck
