@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+__author__ = 'Marc Abramowitz'
+__version__ = '0.0.0'
+
 import __builtin__
 import logging
 import mock
