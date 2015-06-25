@@ -9,7 +9,7 @@ Checks for questionable practices in ``setup.py`` files.
 Install
 -------
 
-.. code-block: bash
+.. code-block:: bash
 
     $ pip install setuppycheck
 
