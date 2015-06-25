@@ -5,7 +5,7 @@ Checks for questionable practices in ``setup.py`` files.
 
 E.g.:
 
-.. code-block: bash
+.. code-block:: bash
 
     [marca@marca-mac2 setuppycheck]$ ./setuppycheck.py examples/exact_pins/setup.py
     WARNING: exact pin: 'requests==2.7.0'
