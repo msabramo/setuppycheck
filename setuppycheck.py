@@ -58,8 +58,22 @@ def setuppycheck(argv=None):
 
         with mock.patch('setuptools.setup', side_effect=setup):
             with mock.patch('__builtin__.open', side_effect=open):
+                # Override __file__ that setup.py receives
+                #
+                # If called as a console_script, we want the setup.py to
+                # receive a __file__ that points to setup.py; not setupcheck.py
+                #
+                # Otherwise if the setup.py does something like:
+                #
+                #     here = os.path.abspath(os.path.dirname(__file__))
+                #
+                # it will get the wrong directory and chaos will ensue.
+                #
+                execfile_globals = globals().copy()
+                execfile_globals['__file__'] = setuppy
+
                 os.chdir(os.path.dirname(setuppy))
-                execfile(setuppy, globals())
+                execfile(setuppy, execfile_globals)
 
     return 0 if is_setuppy_ok else 1
 
