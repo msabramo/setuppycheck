@@ -51,6 +51,8 @@ def setuppycheck(argv=None):
         argv = sys.argv[1:]
 
     for setuppy in argv:
+        setuppy = os.path.realpath(setuppy)
+
         with mock.patch('setuptools.setup', side_effect=setup):
             with mock.patch('__builtin__.open', side_effect=open):
                 os.chdir(os.path.dirname(setuppy))
