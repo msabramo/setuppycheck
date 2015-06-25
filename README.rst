@@ -1,6 +1,12 @@
 setuppycheck: A ``setup.py`` checker
 ====================================
 
+.. image:: https://travis-ci.org/msabramo/setuppycheck.svg?branch=master
+    :target: https://travis-ci.org/msabramo/setuppycheck
+
+.. image:: https://img.shields.io/pypi/v/setuppycheck.svg
+    :target: https://pypi.python.org/pypi/setuppycheck
+
 Checks for questionable practices in ``setup.py`` files.
 
 - PyPI: https://pypi.python.org/pypi/setuppycheck
