@@ -16,6 +16,7 @@ logger = logging.getLogger(__name__)
 
 orig_open = __builtin__.open
 is_setuppy_ok = True
+warnings_output_file = sys.stderr
 
 
 def setup(**kwargs):
@@ -26,7 +27,7 @@ def setup(**kwargs):
 
     for req in install_requires:
         if '==' in req:
-            sys.stderr.write(
+            warnings_output_file.write(
                 'WARNING: exact pin: %r\n' % req)
             is_setuppy_ok = False
 
@@ -37,10 +38,10 @@ def open(name, **kwargs):
     logger.debug('open: %s', name)
 
     if 'requirements' in name:
-        sys.stderr.write(
+        warnings_output_file.write(
             'WARNING: reads %r - looks like a requirements file?\n'
             % name)
-        sys.stderr.write(
+        warnings_output_file.write(
             '  You might want to look at '
             'https://caremad.io/2013/07/setup-vs-requirement/\n')
         is_setuppy_ok = False
