@@ -9,6 +9,8 @@ import mock
 import os
 import sys
 
+import click
+
 level = logging.INFO
 # level = logging.DEBUG
 logging.basicConfig(level=level)
@@ -39,7 +41,7 @@ def open(name, **kwargs):
 
     if 'requirements' in name:
         warnings_output_file.write(
-            'WARNING: reads %r - looks like a requirements file?\n'
+            'WARNING: reads %s - looks like a requirements file?\n'
             % name)
         warnings_output_file.write(
             '  You might want to look at '
@@ -49,11 +51,10 @@ def open(name, **kwargs):
     return orig_open(name, **kwargs)
 
 
-def setuppycheck(argv=None):
-    if argv is None:
-        argv = sys.argv[1:]
-
-    for setuppy in argv:
+@click.command()
+@click.argument('setuppy_file_paths', nargs=-1, required=True)
+def setuppycheck(setuppy_file_paths):
+    for setuppy in setuppy_file_paths:
         setuppy = os.path.realpath(setuppy)
 
         with mock.patch('setuptools.setup', side_effect=setup):
@@ -76,7 +77,3 @@ def setuppycheck(argv=None):
                 execfile(setuppy, execfile_globals)
 
     return 0 if is_setuppy_ok else 1
-
-
-if __name__ == '__main__':
-    sys.exit(setuppycheck())

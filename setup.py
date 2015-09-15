@@ -24,7 +24,7 @@ setup(
     version=get_version(),
     author='Marc Abramowitz',
     author_email='msabramo@gmail.com',
-    install_requires=['mock'],
+    install_requires=['click', 'mock'],
     entry_points="""\
         [console_scripts]
         setuppycheck = setuppycheck:setuppycheck
